@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Whatever.hpp                                       :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pwojnaro <pwojnaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/17 12:54:25 by pwojnaro          #+#    #+#             */
-/*   Updated: 2025/02/17 13:23:01 by pwojnaro         ###   ########.fr       */
+/*   Created: 2025/02/17 13:28:07 by pwojnaro          #+#    #+#             */
+/*   Updated: 2025/02/17 13:34:49 by pwojnaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+
 #include <iostream>
+#include <string>
+#include <cstddef>
 
-template<typename T>
-void swap(T &a, T &b)
+template <typename T, typename F>
+void iter(T* arr, size_t len, F func)
 {
-	if (&a != &b)
+	T* end = arr + len;
+	for (T* p = arr; p < end; ++p)
 	{
-		T temp(std::move(a));
-		a = std::move(b);
-		b = std::move(temp);
+		func(*p);
 	}
-}
-
-template<typename T>
-const T& min(const T &a, const T &b)
-{
-	return (a < b) ? a : b;
-}
-
-template<typename T>
-const T& max(const T &a, const T &b)
-{
-	return (a > b) ? a : b;
 }
