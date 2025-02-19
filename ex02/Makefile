@@ -2,7 +2,7 @@ CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++17
 
 NAME = array
-SRC = main.cpp 
+SRC = main.cpp Complex.cpp
 OBJ_DIR = bin
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 

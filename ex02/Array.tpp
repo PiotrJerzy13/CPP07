@@ -6,7 +6,7 @@
 /*   By: pwojnaro <pwojnaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:01:51 by pwojnaro          #+#    #+#             */
-/*   Updated: 2025/02/17 17:56:47 by pwojnaro         ###   ########.fr       */
+/*   Updated: 2025/02/19 13:32:27 by pwojnaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,8 @@ std::ostream& operator<<(std::ostream& os, const Array<T>& arr)
 
 template<typename T>
 template<typename... Args>
-void Array<T>::emplace(size_t index, Args&&... args) {
+void Array<T>::emplace(size_t index, Args&&... args)
+{
 	if (index >= _size)
 		throw OutOfRangeException();
 	_data[index] = T(std::forward<Args>(args)...);
